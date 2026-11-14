@@ -3,7 +3,7 @@
    Jangan pernah menaruh secret/service_role key di file ini. */
 (() => {
   const SUPABASE_URL = "https://codoudryxsyonqbvpgdk.supabase.co";
-  const SUPABASE_PUBLISHABLE_KEY = "GANTI_DENGAN_SB_PUBLISHABLE_KEY";
+  const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Rw1lO3sKArhyQykEfP2qlg_5OsakbSI";
   let startedAt = null;
   let submitted = false;
 
