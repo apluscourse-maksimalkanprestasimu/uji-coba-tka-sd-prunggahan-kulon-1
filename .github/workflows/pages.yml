@@ -26,6 +26,14 @@ jobs:
           base64 -d source/app.zip.b64 > /tmp/app.zip
           unzip -o /tmp/app.zip -d /tmp/tka-app
           cp /tmp/tka-app/*.html site/index.html
+          cp source/supabase-integration.js site/supabase-integration.js
+          python - <<'PY'
+          from pathlib import Path
+          p = Path("site/index.html")
+          html = p.read_text(encoding="utf-8")
+          html = html.replace("</body>", '<script src="./supabase-integration.js"></script>\\n</body>')
+          p.write_text(html, encoding="utf-8")
+          PY
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
