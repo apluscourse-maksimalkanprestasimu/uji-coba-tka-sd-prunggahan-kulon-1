@@ -40,3 +40,9 @@ with check (
 -- Teacher access is intentionally not opened yet.
 -- After creating teacher accounts, add a teacher allowlist and a SELECT policy
 -- restricted to those authenticated user IDs (instructions in SUPABASE_SETUP.md).
+
+
+-- Allow the browser's publishable key to submit rows through the REST API.
+-- RLS still restricts anonymous access to INSERT only; SELECT remains blocked.
+grant usage on schema public to anon;
+grant insert on table public.exam_results to anon;
